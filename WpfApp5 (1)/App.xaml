@@ -1,0 +1,114 @@
+﻿<Application x:Class="WpfApp5.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfApp5"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- Эффект тени -->
+        <DropShadowEffect x:Key="DefaultShadow"
+                         Color="#FF9370DB" 
+                         Direction="0"
+                         ShadowDepth="0"
+                         BlurRadius="20"
+                         Opacity="0.7"/>
+
+        <!-- Основной градиентный фон -->
+        <LinearGradientBrush x:Key="MainBackground" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#FF1A1A2E" Offset="0.0"/>
+            <GradientStop Color="#FF16213E" Offset="0.5"/>
+            <GradientStop Color="#FF0F3460" Offset="1.0"/>
+        </LinearGradientBrush>
+
+        <!-- Остальные стили остаются без изменений -->
+        <Style x:Key="GlowText" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FFE6E6FA"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#FF9370DB" 
+                                    Direction="0"
+                                    ShadowDepth="0"
+                                    BlurRadius="20"
+                                    Opacity="0.7"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="GlowButton" TargetType="Button">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FF9370DB" Offset="0.0"/>
+                        <GradientStop Color="#FF4B0082" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="20"
+                                BorderThickness="0">
+                            <Border.Effect>
+                                <DropShadowEffect Color="#FF9370DB" 
+                                                Direction="0"
+                                                ShadowDepth="0"
+                                                BlurRadius="10"
+                                                Opacity="0.7"/>
+                            </Border.Effect>
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.9"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="GlowTextBox" TargetType="TextBox">
+            <Setter Property="Background" Value="#1FFFFFFF"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="20"
+                                BorderThickness="1"
+                                BorderBrush="#3FFFFFFF">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="GlowPasswordBox" TargetType="PasswordBox">
+            <Setter Property="Background" Value="#1FFFFFFF"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="20"
+                                BorderThickness="1"
+                                BorderBrush="#3FFFFFFF">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>
